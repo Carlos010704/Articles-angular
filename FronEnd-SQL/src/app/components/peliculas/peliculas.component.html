@@ -1,0 +1,19 @@
+<app-slider [size]="'small'"></app-slider>
+
+<div class="center">
+    <section id="content">
+        <p class="subheader">Películas</p>
+
+        <div *ngIf="peliculas.length <= 0">
+            <p>No hay películas para mostrar...</p>
+        </div>
+
+        <app-pelicula [peliculas]="peliculas"></app-pelicula>
+       
+    </section>
+
+    <app-sidebar></app-sidebar>
+
+    <div class="clearfix"></div>
+
+</div>

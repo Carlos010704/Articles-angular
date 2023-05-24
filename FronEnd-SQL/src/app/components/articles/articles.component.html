@@ -1,0 +1,24 @@
+<div class="loading" *ngIf="cargando && articles.length == 0">
+    Cargando...
+</div>
+
+<div class="loading" *ngIf="!cargando">
+    No se encontraron coincidencias con la busqueda...
+</div>
+
+<div class="articles" *ngIf="articles">
+    <article class="article-item article-btn" id="article-template" *ngFor="let article of articles">
+        <div class="image-wrap">
+            <img src="{{url + 'get-image/' + article.file0}}" alt="{{article.titulo}}" *ngIf="article.file0">
+            <img src="../../../assets/images/no-imagen.jpg" alt="{{article.titulo}}" *ngIf="!article.file0">
+        </div>
+        <h2>{{article.titulo}}</h2>
+        <span class="date">
+            {{article.fecha | amLocale: 'es' | amTimeAgo}}
+        </span>
+        <a [routerLink]="['/blog/article', article.id]">Leer más</a>
+
+        <div class="clearflix"></div>
+
+    </article>
+</div>
